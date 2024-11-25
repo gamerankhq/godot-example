@@ -1,0 +1,25 @@
+config_version=5
+
+[application]
+
+config/name="GameRank Godot Highscores Leaderboard"
+config/description="Illustrates how a game can submit scores for a player, display the highscores leaderboard, ..."
+config/tags=PackedStringArray("gamerank", "leaderboard", "highscores", "example")
+run/main_scene="res://game.tscn"
+config/features=PackedStringArray("4.3")
+run/low_processor_mode=true
+config/icon="res://icon.webp"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=550
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.133333, 0.133333, 0.133333, 1)

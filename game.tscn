@@ -1,0 +1,233 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbk0b4jkfq81v"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_0g6bw"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.16, 0.678, 1, 0.12549)
+
+[sub_resource type="StyleBoxFlat" id="2"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.4, 0.4, 0.4, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="3"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="4"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.266667, 0.266667, 0.266667, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="5"]
+Button/colors/font_color = Color(0.88, 0.88, 0.88, 1)
+Button/colors/font_color_disabled = Color(0.9, 0.9, 0.9, 0.2)
+Button/colors/font_color_hover = Color(0.94, 0.94, 0.94, 1)
+Button/colors/font_color_pressed = Color(1, 1, 1, 1)
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = SubResource("1")
+Button/styles/hover = SubResource("2")
+Button/styles/normal = SubResource("3")
+Button/styles/pressed = SubResource("4")
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchor_right = 0.568
+anchor_bottom = 1.0
+offset_right = 276.48
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("5")
+script = ExtResource("1_0g6bw")
+metadata/_edit_vertical_guides_ = [320.0]
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 602.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 40
+text = "GameRank Godot Mini-Game"
+horizontal_alignment = 1
+
+[node name="NewGamePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 88.0
+offset_right = 621.0
+offset_bottom = 395.0
+
+[node name="NewGameLabel" type="Label" parent="NewGamePanel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 40
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="UsernameLabel" type="Label" parent="NewGamePanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 84.0
+offset_right = 151.0
+offset_bottom = 107.0
+text = "Enter your name:"
+
+[node name="Username" type="LineEdit" parent="NewGamePanel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 122.0
+offset_right = 584.0
+offset_bottom = 153.0
+
+[node name="StartNewGameButton" type="Button" parent="NewGamePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 175.0
+offset_right = 580.0
+offset_bottom = 235.0
+disabled = true
+text = "Start a new game"
+
+[node name="GamePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 88.0
+offset_right = 621.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="GamePanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.064
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 554.2
+offset_bottom = 91.96
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StopButton" type="Button" parent="GamePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 141.0
+offset_right = 580.0
+offset_bottom = 201.0
+text = "STOP!"
+
+[node name="SubmitScoreButton" type="Button" parent="GamePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 213.0
+offset_right = 580.0
+offset_bottom = 273.0
+disabled = true
+text = "Submit score"
+
+[node name="CongratsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 89.0
+offset_right = 621.0
+offset_bottom = 395.0
+
+[node name="Username" type="Label" parent="CongratsPanel"]
+layout_mode = 0
+offset_top = 6.0
+offset_right = 598.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 29
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="CongratsPanel"]
+layout_mode = 0
+offset_top = 209.0
+offset_right = 598.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="CongratsPanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 106.0
+offset_right = 601.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 29
+text = "Sending your score..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaderboardPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 89.0
+offset_right = 621.0
+offset_bottom = 395.0
+
+[node name="Leaderboard" type="ItemList" parent="LeaderboardPanel"]
+layout_mode = 0
+offset_right = 598.0
+offset_bottom = 304.0
+item_count = 1
+
+[node name="LoadingLabel" type="Label" parent="LeaderboardPanel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 131.0
+offset_right = 462.0
+offset_bottom = 183.0
+text = "Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ViewLeaderboardButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 409.0
+offset_right = 617.0
+offset_bottom = 466.0
+text = "View highscores"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 409.0
+offset_right = 315.0
+offset_bottom = 466.0
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 473.0
+offset_right = 617.0
+offset_bottom = 528.0
+text = "Quit"
