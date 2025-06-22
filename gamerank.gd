@@ -70,7 +70,7 @@ class HighscoresLeaderboard:
             "return_best": true,
         }
         var err = http_client.request_raw(HTTPClient.METHOD_POST,
-                                        "/leaderboard/score",
+                                        "/scoreboard/submit",
                                         self._build_http_headers(),
                                         JSON.stringify(request_object).to_utf8_buffer())
 
@@ -94,7 +94,7 @@ class HighscoresLeaderboard:
 
         var response_object = Dictionary(json.data)
         callback.call(PersonalBest.new(
-                        int(response_object["best_score"]),
+                        int(response_object["best"]),
                         int(response_object["best_position"]),
                         bool(response_object["is_new_best"])),
                       GAMERANK_NO_ERROR)
@@ -119,7 +119,7 @@ class HighscoresLeaderboard:
 
         # prepare and send the request
         var err = http_client.request_raw(HTTPClient.METHOD_GET,
-                                        "/leaderboard/score/top/" + str(count),
+                                        "/scoreboard/top/" + str(count),
                                         self._build_http_headers(), PackedByteArray())
 
         # wait for the response
@@ -145,7 +145,7 @@ class HighscoresLeaderboard:
         for entry in response_object:
             var obj = Dictionary(entry)
             var score = Score.new(obj["userid"], obj["username"],
-                                  int(obj["score"]), int(obj["creation_time"]))
+                                  int(obj["entry"]), int(obj["creation_time"]))
             rv.append(score)
 
         callback.call(rv, GAMERANK_NO_ERROR)
